@@ -1,14 +1,31 @@
 {
   "name": "my-vuedplayer",
   "version": "0.1.0",
+  "description": "A Vuecli 4.x video player component based on DPlayer",
+  "main": "dist/my-vuedplayer.common.js",
+  "files": [
+    "dist/my-vuedplayer.umd.js", "dist/demo.html"
+  ],
+  "author": {
+    "name": "qipaxiong"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qipaxiong/my-vuedplayer"
+  }, 
+  "bugs": {
+    "url": "https://github.com/qipaxiong/my-vuedplayer"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name my-vuedplayer src/components/myvuedplayer.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dplayer": "^1.26.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -36,8 +53,7 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",
