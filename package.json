@@ -6,6 +6,7 @@
   "files": [
     "dist/my-vuedplayer.umd.js", "dist/demo.html"
   ],
+  "license": "MIT",
   "author": {
     "name": "qipaxiong"
   },
