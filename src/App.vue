@@ -4,64 +4,79 @@
  * @Autor: 黄鹏举
  * @Date: 2020-09-26 23:23:54
  * @LastEditors: Seven
- * @LastEditTime: 2020-10-01 00:32:37
+ * @LastEditTime: 2020-09-29 23:18:56
 -->
 <template>
   <div id="app">
-    <myvueaplayer :options="options" ref="aplayer"></myvueaplayer>
+    <button class="btn btn-primary" @click="switchHandle">switch</button>
+    <myvuedplayer
+      style="width: 500px; margin: 0 auto"
+      :options="options"
+      @play="play"
+      ref="dplayer"
+    ></myvuedplayer>
   </div>
 </template>
 
 <script>
-import myvueaplayer from "./components/myvueaplayer.vue";
+import myvuedplayer from "./components/myvuedplayer.vue";
 
 export default {
   name: "App",
   components: {
-    myvueaplayer,
+    myvuedplayer,
   },
   data() {
     return {
       options: {
-        fixed: true,
-        mini: false,
-        autoplay: false,
-        theme: "#FADFA3",
-        loop: "all",
-        order: "random",
-        preload: "auto",
-        volume: 0.7,
-        mutex: true,
-        listFolded: false,
-        listMaxHeight: 90,
-        lrcType: 3,
-        audio: [
+        video: {
+          url: "http://static.smartisanos.cn/common/video/t1-ui.mp4",
+          pic:
+            "http://static.smartisanos.cn/pr/img/video/video_03_cc87ce5bdb.jpg",
+        },
+        autoplay: false, //视频自动播放
+        screenshot: true, //开启截图，如果开启，视频和视频封面需要允许跨域
+        live: false, //开启直播模式
+        loop: false, //视频循环播放
+        theme: "#f40", //主题色
+        preload: "auto", //视频预加载，可选值: 'none', 'metadata', 'auto'
+        hotkey: true, //开启热键，支持快进、快退、音量控制、播放暂停
+        airplay: false, //在 Safari 中开启 AirPlay
+        danmaku: true,
+        danmaku: {
+          id: "9E2E3368B56CDBB4",
+          api: "https://api.prprpr.me/dplayer/",
+          token: "tokendemo",
+          maximum: 1000,
+          addition: ["https://api.prprpr.me/dplayer/v3/bilibili?aid=21322"],
+          user: "DIYgod",
+          bottom: "15%",
+          unlimited: true,
+        },
+        contextmenu: [
           {
-            name: "name1",
-            artist: "artist1",
-            url: "url1.mp3",
-            cover: "cover1.jpg",
-            lrc: "lrc1.lrc",
-            theme: "#ebd0c2",
-          },
-          {
-            name: "name2",
-            artist: "artist2",
-            url: "url2.mp3",
-            cover: "cover2.jpg",
-            lrc: "lrc2.lrc",
-            theme: "#46718b",
+            text: "GitHub",
+            link: "https://github.com/MoePlayer/vue-dplayer",
           },
         ],
       },
-      ap: null,
+      dp: null,
     };
   },
   mounted() {
-    this.ap = this.$refs.aplayer.ap;
-    //https://api.fczbl.vip/163/?type=playlist&id=2003373695
+    this.dp = this.$refs.dplayer.dp;
   },
-  methods: {},
+  methods: {
+    play() {
+      console.log("play callback");
+    },
+    switchHandle() {
+      this.dp.switchVideo({
+        url: "http://static.smartisanos.cn/common/video/video-jgpro.mp4",
+      });
+      this.dp.play();
+    },
+  },
 };
 </script>
 

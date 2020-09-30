@@ -1,10 +1,10 @@
 {
-  "name": "my-vueaplayer",
-  "version": "0.0.1",
+  "name": "my-vuedplayer",
+  "version": "0.0.2",
   "description": "A Vuecli 4.x video player component based on DPlayer",
-  "main": "dist/my-vueaplayer.common.js",
+  "main": "dist/my-vuedplayer.common.js",
   "files": [
-    "dist"
+    "dist/my-vuedplayer.umd.js", "dist/demo.html"
   ],
   "license": "MIT",
   "author": {
@@ -12,21 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/qipaxiong/my-vueaplayer"
-  },
+    "url": "https://github.com/qipaxiong/my-vuedplayer"
+  }, 
   "bugs": {
-    "url": "https://github.com/qipaxiong/my-vueaplayer"
+    "url": "https://github.com/qipaxiong/my-vuedplayer"
   },
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name my-vueaplayer src/components/myvueaplayer.vue",
+    "build-bundle": "vue-cli-service build --target lib --name my-vuedplayer src/components/myvuedplayer.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "aplayer": "^1.10.1",
     "core-js": "^3.6.5",
+    "dplayer": "^1.26.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {

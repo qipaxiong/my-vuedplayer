@@ -4,15 +4,14 @@
  * @Autor: 黄鹏举
  * @Date: 2020-09-26 23:23:54
  * @LastEditors: Seven
- * @LastEditTime: 2020-10-01 00:22:11
+ * @LastEditTime: 2020-09-29 23:36:34
 -->
 <template>
-<div class="aplayer" ref="aplayer">
+<div class="dplayer" ref="dplayer">
 </div>
 </template>
 <script>
-import 'aplayer/dist/APlayer.min.css';
-import APlayer from 'aplayer';
+import DPlayer from 'dplayer'
 export default {
   name: 'myvuedplayer',
   props: {
@@ -22,12 +21,12 @@ export default {
   },
   data () {
     return {
-      ap: null
+      dp: null
     }
   },
   mounted () {
-      this.options.container = this.$refs.aplayer
-    this.ap = new APlayer(this.options)
+    this.options.container = document.querySelector('.dplayer')
+    this.dp = new DPlayer(this.options)
   },
   methods: {
 
